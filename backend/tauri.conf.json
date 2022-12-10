@@ -12,7 +12,7 @@
   },
   "tauri": {
     "allowlist": {
-      "all": false
+      "all": true
     },
     "bundle": {
       "active": true,
@@ -55,11 +55,12 @@
     },
     "windows": [
       {
+        "width": 1280,
+        "height": 720,
         "fullscreen": false,
-        "height": 600,
         "resizable": true,
         "title": "Memoria",
-        "width": 800
+        "decorations": false
       }
     ]
   }
