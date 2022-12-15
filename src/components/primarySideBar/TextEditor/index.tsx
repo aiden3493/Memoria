@@ -1,31 +1,31 @@
-import { $getRoot, $getSelection, type EditorState } from "lexical";
-import { useEffect } from "react";
+import { $getRoot, type EditorState } from "lexical";
+import { useContext } from "react";
 
 import { LexicalComposer } from "@lexical/react/LexicalComposer";
-import { PlainTextPlugin } from "@lexical/react/LexicalPlainTextPlugin";
+import { RichTextPlugin } from "@lexical/react/LexicalRichTextPlugin";
+import { CheckListPlugin } from "@lexical/react/LexicalCheckListPlugin";
 import { ContentEditable } from "@lexical/react/LexicalContentEditable";
 import { HistoryPlugin } from "@lexical/react/LexicalHistoryPlugin";
 import { OnChangePlugin } from "@lexical/react/LexicalOnChangePlugin";
-import { useLexicalComposerContext } from "@lexical/react/LexicalComposerContext";
 import LexicalErrorBoundary from "@lexical/react/LexicalErrorBoundary";
+import { globalContext } from "../../../pages/_app";
+import { toSchedule } from "../../../lib/toSchedule";
+import AutoFocusPlugin from "./plugins/AutoFocusPlugin";
 
 const TextEditor: React.FC = () => {
-  const CustomAutoFocusPlugin = () => {
-    const [editor] = useLexicalComposerContext();
-
-    useEffect(() => {
-      editor.focus();
-    }, [editor]);
-
-    return null;
-  };
+  const { schedules, setSchedules } = useContext(globalContext);
 
   const onChange = (editorState: EditorState) => {
     editorState.read(() => {
       const root = $getRoot();
-      const selection = $getSelection();
 
-      console.log(root, selection);
+      const textData = root.__cachedText ?? "";
+
+      if (setSchedules) {
+        const schedule = toSchedule(textData);
+        console.log(schedule);
+        setSchedules(schedule);
+      }
     });
   };
 
@@ -34,22 +34,23 @@ const TextEditor: React.FC = () => {
   };
 
   const editorConfig = {
-    namespace: "planEditor",
+    namespace: "Editor",
     onError,
   };
 
   return (
     <LexicalComposer initialConfig={editorConfig}>
-      <PlainTextPlugin
+      <RichTextPlugin
         contentEditable={
-          <ContentEditable className="h-full max-h-full w-full text-[16px] outline-none" />
+          <ContentEditable className="h-full max-h-full w-full text-[17px] outline-none" />
         }
         placeholder={null}
         ErrorBoundary={LexicalErrorBoundary}
       />
+      <CheckListPlugin />
       <OnChangePlugin onChange={onChange} />
       <HistoryPlugin />
-      <CustomAutoFocusPlugin />
+      <AutoFocusPlugin />
     </LexicalComposer>
   );
 };
