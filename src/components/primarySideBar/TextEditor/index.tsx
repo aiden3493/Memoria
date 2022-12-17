@@ -1,19 +1,18 @@
 import { $getRoot, type EditorState } from "lexical";
 import { useContext } from "react";
-
 import { LexicalComposer } from "@lexical/react/LexicalComposer";
 import { RichTextPlugin } from "@lexical/react/LexicalRichTextPlugin";
 import { CheckListPlugin } from "@lexical/react/LexicalCheckListPlugin";
 import { ContentEditable } from "@lexical/react/LexicalContentEditable";
 import { HistoryPlugin } from "@lexical/react/LexicalHistoryPlugin";
 import { OnChangePlugin } from "@lexical/react/LexicalOnChangePlugin";
-import LexicalErrorBoundary from "@lexical/react/LexicalErrorBoundary";
 import { globalContext } from "../../../pages/_app";
 import { toSchedule } from "../../../lib/toSchedule";
+import LexicalErrorBoundary from "@lexical/react/LexicalErrorBoundary";
 import AutoFocusPlugin from "./plugins/AutoFocusPlugin";
 
 const TextEditor: React.FC = () => {
-  const { schedules, setSchedules } = useContext(globalContext);
+  const { setSchedules } = useContext(globalContext);
 
   const onChange = (editorState: EditorState) => {
     editorState.read(() => {
@@ -23,7 +22,6 @@ const TextEditor: React.FC = () => {
 
       if (setSchedules) {
         const schedule = toSchedule(textData);
-        console.log(schedule);
         setSchedules(schedule);
       }
     });

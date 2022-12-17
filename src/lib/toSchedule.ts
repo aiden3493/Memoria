@@ -1,8 +1,7 @@
 import { type schedulesType } from "../types/schedule";
 
 export const toSchedule = (textData: string) => {
-  const scheduleData = textData.split("\n");
-  console.log("schedule", scheduleData);
+  const scheduleData = textData.replaceAll(" ", "").split("\n");
   const schedule: schedulesType = {};
 
   scheduleData.forEach((element) => {

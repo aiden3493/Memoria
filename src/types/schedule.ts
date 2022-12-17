@@ -1,3 +1,3 @@
-export type schedulesType = {
+export interface schedulesType {
   [date: string]: string;
-};
+}
