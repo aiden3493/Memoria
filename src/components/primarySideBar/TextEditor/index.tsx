@@ -14,7 +14,7 @@ import LexicalErrorBoundary from "@lexical/react/LexicalErrorBoundary";
 import AutoFocusPlugin from "./plugins/AutoFocusPlugin";
 import EditorNodes from "./nodes/EditorNodes";
 import EditorTheme from "./theme/EditorTheme";
-import ToolBarPlugin from "./plugins/toolBarPlugin";
+import ToolBarPlugin from "./plugins/ToolBarPlugin";
 import addTodo from "../../../lib/addTodo";
 
 function prepopulatedRichText() {
