@@ -1,9 +1,36 @@
+import dynamic from "next/dynamic";
+import Image from "next/image";
+
+const MaximizeToggleButton = dynamic(
+  () => import("./Buttons/MaximizeToggleButton"),
+  {
+    ssr: false,
+  }
+);
+const MinimizeButton = dynamic(() => import("./Buttons/MinimizeButton"), {
+  ssr: false,
+});
+const CloseButton = dynamic(() => import("./Buttons/CloseButton"), {
+  ssr: false,
+});
+
 const TitleBar: React.FC = () => {
   return (
     <div
       data-tauri-drag-region
-      className="max-h-[65px] min-h-[65px] w-full flex-1 rounded-lg bg-gray-400"
-    ></div>
+      className="h-[65px] max-h-[65px] w-full rounded-lg border-[3px] border-black px-2"
+    >
+      <div className="flex h-full w-full items-center justify-between">
+        <div className="flex h-[45px] w-[45px] cursor-pointer items-center justify-center rounded-md border-[3px] border-black transition-all hover:bg-gray-200">
+          <Image src="/icon.png" width={512} height={512} alt="Memoria" />
+        </div>
+        <div className="flex items-center justify-center space-x-1">
+          <MinimizeButton />
+          <MaximizeToggleButton />
+          <CloseButton />
+        </div>
+      </div>
+    </div>
   );
 };
 
