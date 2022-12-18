@@ -5,6 +5,9 @@ import SecondarySideBar from "../components/secondarySideBar";
 import TitleBar from "../components/titleBar";
 
 import "../styles/globals.css";
+import "../styles/scrollbar.css";
+import "../components/primarySideBar/TextEditor/theme/EditorTheme.css";
+
 import { type globalContextType } from "../types/globalContext";
 import { type schedulesType } from "../types/schedule";
 
@@ -22,7 +25,7 @@ const MyApp: AppType = ({ Component, pageProps }) => {
   };
 
   return (
-    <div className="flex min-h-screen w-screen flex-col items-center justify-center space-y-3 p-3">
+    <div className="flex max-h-screen min-h-screen w-screen flex-col items-center justify-center space-y-3 p-3">
       <globalContext.Provider value={contextData}>
         <TitleBar />
         <main className="flex h-full w-full flex-1 space-x-3 overflow-hidden rounded-lg">

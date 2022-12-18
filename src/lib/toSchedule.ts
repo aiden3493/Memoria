@@ -11,5 +11,7 @@ export const toSchedule = (textData: string) => {
     }
   });
 
+  console.log(schedule);
+
   return schedule;
 };
