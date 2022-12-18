@@ -304,8 +304,6 @@
   list-style-position: inside;
 }
 .EditorTheme__listItem {
-  display: flex;
-  align-items: center;
   margin: 0 32px;
 }
 .EditorTheme__listItemChecked,
@@ -313,13 +311,10 @@
   position: relative;
   margin-left: 0px;
   margin-right: 8px;
-  padding-left: 24px;
+  padding-left: 32px;
   padding-right: 24px;
   list-style-type: none;
   outline: none;
-}
-span[data-lexical-text="true"] {
-  margin-left: 10px;
 }
 .EditorTheme__listItemChecked {
   text-decoration: line-through;
@@ -327,8 +322,8 @@ span[data-lexical-text="true"] {
 .EditorTheme__listItemUnchecked:before,
 .EditorTheme__listItemChecked:before {
   content: "";
-  width: 25px;
-  height: 25px;
+  width: 22px;
+  height: 22px;
   top: 3.5px;
   left: 2px;
   cursor: pointer;
@@ -363,9 +358,9 @@ span[data-lexical-text="true"] {
   border-style: solid;
   position: absolute;
   display: block;
-  top: 8px;
+  top: 7.25px;
   width: 6px;
-  left: 12px;
+  left: 10.25px;
   right: 5px;
   height: 10px;
   transform: rotate(45deg);

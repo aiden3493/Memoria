@@ -55,7 +55,7 @@ const TextEditor: React.FC = () => {
       <div className="h-full w-full p-5 pt-0 pr-3">
         <RichTextPlugin
           contentEditable={
-            <ContentEditable className="h-full w-full overflow-y-scroll text-[18px] leading-8 outline-none" />
+            <ContentEditable className="h-full w-full overflow-y-scroll text-[18px] leading-7 outline-none" />
           }
           placeholder={null}
           ErrorBoundary={LexicalErrorBoundary}
