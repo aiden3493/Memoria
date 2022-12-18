@@ -12,11 +12,10 @@ const ToolBarPlugin: React.FC = () => {
   };
 
   return (
-    <div className=" flex h-[50px] min-w-full items-center justify-end border-b-[3px] border-black px-3">
+    <div className=" flex h-[60px] min-w-full items-center justify-end border-b-[3px] border-black px-3 py-2">
       <div
-        title="일정 추가"
         onClick={onAddTodoClick}
-        className="flex cursor-pointer items-center justify-center rounded-lg bg-gray-200 p-1 transition-all hover:bg-gray-300"
+        className="flex h-[35px] w-[35px] cursor-pointer items-center justify-center rounded-lg bg-gray-200 p-1 transition-all hover:bg-gray-300"
       >
         <PlusTodoIcon />
       </div>

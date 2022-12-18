@@ -304,6 +304,8 @@
   list-style-position: inside;
 }
 .EditorTheme__listItem {
+  display: flex;
+  align-items: center;
   margin: 0 32px;
 }
 .EditorTheme__listItemChecked,
@@ -316,14 +318,17 @@
   list-style-type: none;
   outline: none;
 }
+span[data-lexical-text="true"] {
+  margin-left: 10px;
+}
 .EditorTheme__listItemChecked {
   text-decoration: line-through;
 }
 .EditorTheme__listItemUnchecked:before,
 .EditorTheme__listItemChecked:before {
   content: "";
-  width: 18px;
-  height: 18px;
+  width: 25px;
+  height: 25px;
   top: 3.5px;
   left: 2px;
   cursor: pointer;
@@ -358,11 +363,11 @@
   border-style: solid;
   position: absolute;
   display: block;
-  top: 7.25px;
+  top: 8px;
   width: 6px;
-  left: 8px;
+  left: 12px;
   right: 5px;
-  height: 8px;
+  height: 10px;
   transform: rotate(45deg);
   border-width: 0 2px 2px 0;
 }
